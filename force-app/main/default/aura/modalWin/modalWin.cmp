@@ -1,0 +1,44 @@
+<aura:component>
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
+    <aura:attribute name="won" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="resetGame" type='c:resetGame'></aura:registerEvent>
+
+
+    <!-- Modal -->
+    <aura:if isTrue="{!v.isOpen}">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <!-- Modal/Popup Header -->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" alternativeText="Close" 
+                                          onclick="{!c.closeModal}" class="slds-modal__close"/>
+                    <aura:if isTrue="{!v.won}">
+                        <h2 class="slds-text-heading_medium">Felicidades</h2>
+                        <aura:set attribute="else">
+                            <h2 class="slds-text-heading_medium">Que mal :(</h2>
+                        </aura:set>
+                    </aura:if>
+                </header>
+
+                <!-- Modal/Popup Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <aura:if isTrue="{!v.won}">
+                        <h2 class="slds-text-heading_medium">Haz ganado!</h2>
+                        <aura:set attribute="else">
+                            <h2 class="slds-text-heading_medium">Haz perdido</h2>
+                        </aura:set>
+                    </aura:if>
+                </div>
+
+                <!-- Modal/Popup Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancelar" onclick="{!c.closeModal}"/>
+                    <lightning:button variant="brand" label="Guardar" onclick="{!c.confirmacion}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>	

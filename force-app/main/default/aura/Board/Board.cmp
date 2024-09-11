@@ -1,0 +1,41 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="BoardPanelController">
+
+    <aura:attribute name="isOpen" type="Boolean" default="false" />
+    <!--//////handler y attribute de el combobox//////////////-->
+    <aura:attribute name="options" type="List" default="[]" />
+    <aura:handler name="init" value="{! this }" action="{! c.list }" />
+    <!--//////////////////////////////////////////////////-->
+
+
+    <!--///////////handler el seguroEvent el cual uso para pasar informacion del hijo al padre(de modal a board) este dispara la funcion handleConfirmacion disparada por seguroEvent-->
+    <aura:handler event="c:resultApplication" action="{! c.onResultHandler }" />
+
+    <aura:handler name="messageAlert" event="c:seguroEvent" action="{! c.handleConfirmacion }" />
+    <!--/////////////////////////////////////////////////////////////////////////-->
+    <!--creamos este attribute para almacenar el valor de selected mode y pasarlo a mode desde el controller-->
+    <aura:attribute name="selectedMode" type="String"></aura:attribute>
+    <aura:attribute name="mode" type="String"></aura:attribute>
+    <aura:attribute name="reshuffleDisabled" type="Boolean" default="true" ></aura:attribute>
+    <aura:attribute name="disabled" type="boolean" default="true"></aura:attribute>
+
+
+    <lightning:card title="World Shuffle">
+        <div class="wContainer">
+            <lightning:combobox label="Seleccion" class="cBox" name="general" placeholder="Select an Option"
+                options="{! v.options }" onchange="{! c.handleChange }" />
+            <div class="btnContainer">
+                <lightning:button class="btn" variant="brand" disabled="{!v.reshuffleDisabled}"  label="Re shuffle" title="Re shuffle"
+                    onclick="{! c.handleReShuffle }" />
+                <lightning:button class="btn" variant="brand-outline" label="Start new game" title="New game"
+                    onclick="{! c.handleNewGame }" disabled="{!v.disabled}" />
+            </div>
+        </div>
+        <aura:if isTrue="{!(v.mode != null)}">
+            <p>Game mode is: {!v.mode}</p>
+        </aura:if>
+    </lightning:card>
+    <c:modal isOpen="{!v.isOpen}" />
+    <aura:if isTrue="{! (v.mode != null)}">
+        <c:gBoard mode="{!v.mode}" aura:id="gameBoard" />
+    </aura:if>
+</aura:component>

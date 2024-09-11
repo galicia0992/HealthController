@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="CTRecentChangesController">
+
+    <!--Attributes-->
+    <aura:attribute name="issearching" type="Boolean" default="false"></aura:attribute>
+    <aura:attribute name="getRecentPersonHealthChanges" type="Object" default="[]"></aura:attribute>
+    <aura:attribute name="getRecentLocationHealthChanges" type="Object" default="[]"></aura:attribute>
+    <aura:attribute name="data" type="object"></aura:attribute>
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="tabName" type="String" default="Person" />
+
+    <!--Handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card title="Resent Updates">
+        <aura:set attribute="actions">
+            <div>
+                <lightning:input name="search" label="Hit 'Enter' to search" aura:id="enter-search"
+                    isLoading="{! v.issearching }" type="search" placeholder="Search here..."
+                    onkeyup="{!c.handleKeyUp}" />
+            </div>
+        </aura:set>
+        <lightning:datatable keyField="id" data="{! v.data }" columns="{! v.columns }" hideCheckboxColumn="true"
+            onrowaction="{! c.handleRowAction }" />
+    </lightning:card>
+</aura:component>

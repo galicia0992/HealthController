@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="gameResultController">
+    <aura:handler name="init" value="{! this }" action="{! c.resultList }" />
+    <aura:handler event="c:resultTableRefresh" action="{! c.resultList }" />
+
+    <!-- attributes -->
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="resultList" type="List" default="[]"></aura:attribute>
+
+    
+
+
+    <!-- the container element determine the height of the datatable -->
+    <lightning:card title="Results">
+        <div class="slds-var-p-around_medium resultContainer">
+            <lightning:datatable
+                keyField="id"
+                data="{! v.resultList }"
+                columns="{! v.columns }"
+                hideCheckboxColumn="true"
+                />
+        </div>
+    </lightning:card>
+</aura:component>	

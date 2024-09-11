@@ -1,0 +1,11 @@
+/*todo junto cuando se le da el estilo a un componente que es hijo directo del aura:component*/
+.THIS.board{
+    background-color: #f7fafc;
+    position: relative;
+}
+
+/*es separado cuando se le da el estilo a un componente que que esta dentro de otro*/
+.THIS .win-word{
+    text-transform: capitalize;
+    font-weight: bold;
+}
