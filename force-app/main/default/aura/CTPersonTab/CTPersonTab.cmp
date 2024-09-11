@@ -5,7 +5,7 @@
         <aura:set attribute="actions">
             <div class="flex-row searchContainer">
                 <lightning:input name="search" 
-                    isLoading="" type="search" placeholder="Search here"
+                    isLoading="" type="search" placeholder="Search here."
                     onkeyup="" variant="label-hidden"/>
                 <lightning:button name="search" label="Search User" onclick=""/>
             </div>
