@@ -1,0 +1,26 @@
+<aura:component controller="CTLocationViewController">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="status" type="String"/>
+    <aura:attribute name="obj" type="String"/>
+    <aura:attribute name="field" type="String[]" default="['Id', 'Name', 'Status__c', 'Pincode__c', 'Address__c', 'Red_Score__c', 'Status_Update_Date__c']"/>
+
+
+    <aura:handler event="c.CTLocationSelectEvent" action="{!c.locationSelectHandler}"></aura:handler>
+    
+
+
+    <aura:if isTrue="{! !empty(v.recordId)}">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <div class="{!v.status + ' location-card'}">
+                    <lightning:recordForm recordId="{!v.recordId}" objectApiName="Location__c" fields="{!v.field}"
+                        columns="1" mode="readonly" />
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:button label="Update Status to Red" iconName="utility:edit" iconPosition="left"  variant="destructive" onclick="{!c.onClickHandler}"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+
+</aura:component>

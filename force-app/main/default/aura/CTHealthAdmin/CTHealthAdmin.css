@@ -1,0 +1,19 @@
+.THIS .header-item{
+    font-weight: bold;
+}
+.THIS .green{
+    color: green
+}
+.THIS .yellow{
+    color: rgb(214, 214, 38)
+}
+.THIS .orange{
+    color: orange
+}
+.THIS .red{
+    color: red
+}
+.THIS.container{
+    background-color: white;
+    margin: -12px;
+}

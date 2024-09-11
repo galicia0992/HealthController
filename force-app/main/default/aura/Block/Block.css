@@ -1,0 +1,21 @@
+.THIS.labelCard{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    border: 1px, rgba(128, 128, 128, 0.387), solid;
+    border-radius: 10px;
+}
+.THIS.labelCard:hover{
+    background-color: #f0f0f0;
+    transition: all ease 0.5s;
+    transform:scale(1.05);
+}
+.THIS .label{
+    font-size: medium;
+    font-weight: bold;
+    transition: all ease 0.5s;
+    transform:scale(1.04);
+ }
+ 

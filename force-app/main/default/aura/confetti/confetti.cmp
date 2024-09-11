@@ -1,0 +1,7 @@
+<aura:component>
+    <ltng:require scripts="{!$Resource.Confetti}" />
+    
+
+
+
+</aura:component>

@@ -1,0 +1,18 @@
+.THIS .location-card {
+    border: 1px solid #dddbda;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px #dddbda;
+}
+.THIS .Green{
+    border-top: 8px solid green;
+    
+}
+.THIS .Yellow{
+    border-top: 8px solid rgb(214, 214, 38)
+}
+.THIS .Orange{
+    border-top: 8px solid orange
+}
+.THIS .Red{
+    border-top: 8px solid red
+}

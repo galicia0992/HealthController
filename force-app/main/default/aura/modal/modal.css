@@ -1,0 +1,12 @@
+.THIS .slds-modal__container {
+    max-width: 40rem; /* Ajusta el ancho del modal */
+}
+
+.THIS .slds-modal__header {
+    background-color: #0070d2;
+    color: white;
+}
+
+.THIS .slds-modal__footer {
+    text-align: right;
+}

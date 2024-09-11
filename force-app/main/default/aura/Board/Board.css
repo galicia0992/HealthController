@@ -1,0 +1,15 @@
+.THIS .btnContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+.THIS .btn{
+    margin-left: 2.5rem;
+}
+.THIS .cBox{
+    width: 45em;
+    margin-left: 20px;
+}
+

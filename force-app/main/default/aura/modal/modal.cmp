@@ -1,0 +1,32 @@
+<aura:component>
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
+    <aura:registerEvent name="messageAlert" type="c:seguroEvent"/>
+
+
+    <!-- Modal -->
+    <aura:if isTrue="{!v.isOpen}">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <!-- Modal/Popup Header -->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" alternativeText="Close" 
+                                          onclick="{!c.closeModal}" class="slds-modal__close"/>
+                    <h2 class="slds-text-heading_medium">Re iniciar</h2>
+                </header>
+
+                <!-- Modal/Popup Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p>Se reiniciara el juego</p>
+                </div>
+
+                <!-- Modal/Popup Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancelar" onclick="{!c.closeModal}"/>
+                    <lightning:button variant="brand" label="Guardar" onclick="{!c.confirmacion}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

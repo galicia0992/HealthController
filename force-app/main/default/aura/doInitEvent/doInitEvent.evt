@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="initE" type="List" default="[]"></aura:attribute>
+</aura:event>
+
