@@ -7,7 +7,7 @@ public with sharing class CTLocationTabController {
         Location__c location = CTLocationController.getLocationById(recordId);
         if(location != null){
             info.name = location.Name;
-            info.redScore = location.Red_Score__c;
+            info.redScore = Integer.valueOf(location.Red_Score__c);
             info.statusUpdateOn = location.Status_Update_Date__c;
             info.pincode = location.Pincode__c;
             info.status = location.Status__c;
@@ -35,7 +35,7 @@ public with sharing class CTLocationTabController {
     }
     public class LocationInformation{
         @AuraEnabled public String name;
-        @AuraEnabled public Double redScore;
+        @AuraEnabled public Integer redScore;
         @AuraEnabled public Date statusUpdateOn;
         @AuraEnabled public String pinCode;
         @AuraEnabled public String status;
