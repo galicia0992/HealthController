@@ -1,6 +1,6 @@
 public class CTLocationTracingController {
     public static List<Location_Tracing__c> getVisitors(String locationId){
-        List<Location_Tracing__c> lTList = [SELECT id, Location__c, Person__c, Visit_Date__c, Person__r.Health_Status__c, Person__r.Token__c  FROM Location_Tracing__c WHERE id =:locationId ORDER BY Visit_Date__c DESC];
+        List<Location_Tracing__c> lTList = [SELECT id, Location__c, Person__c, Visit_Date__c, Person__r.Health_Status__c, Person__r.Token__c  FROM Location_Tracing__c WHERE Location__c =:locationId ORDER BY Visit_Date__c DESC];
         return lTList;
     }
     public static List<Location_Tracing__c> getLocationsByPersonsId(Set<Id> personsId){

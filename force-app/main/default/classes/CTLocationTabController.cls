@@ -31,6 +31,7 @@ public with sharing class CTLocationTabController {
             info.contacts = closeContact;
             info.contactsCount = closeContact.size();
         }
+        system.debug(info);
         return info;
     }
     public class LocationInformation{
